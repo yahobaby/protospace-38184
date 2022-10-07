@@ -1,0 +1,29 @@
+<%# データベースに異常発生で、やり直し202210061228 %>
+
+<%#元記述： <%= form_with model: モデル名, local: true do |f|%> 
+<%= form_with(model: @prototype, local: true) do |f| %>
+<%# <%= form_with model: @prototype, url: prototypes_path, local: true do |f| これだめだった・・202210050550%>
+  <div class="field">
+    <%= f.label :title, "プロトタイプの名称" %><br />                                                                          <!-- :hoge を :titleへ !-->
+    <%= f.text_field :title, id:"prototype_title" %>                                                                        <!-- :hoge を :titleへ !-->
+  </div>
+
+  <div class="field">
+    <%= f.label :catch_copy, "キャッチコピー" %><br />                                                                        <!-- :hoge を :catch_copyへ !-->
+    <%= f.text_area :catch_copy, class: :form__text, id:"prototype_catch_copy" %>                                           <!-- :hoge を :catch_copyへ !-->
+  </div>
+
+  <div class="field">
+    <%= f.label :concept, "コンセプト" %><br />                                                                                  <!-- :hoge を :conceptへ !-->
+    <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>                                                    <!-- :hoge を :conceptへ !-->
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "プロトタイプの画像" %><br />                                                                                <!-- :hoge を :imageへ !-->
+    <%= f.file_field :image, id:"prototype_image" %>                                                                            <!-- :hoge を :imageへ !-->
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+<%# データベースに異常発生で、やり直し202210061155 %>
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
+
+        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%> 
+        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %> <!--202210040605修正済み!-->
+
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />                                                                          <!-- :hoge を :emailへ !-->
+          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>                                 <!-- :hoge を :emailへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード（6文字以上）" %><br />                                                                <!-- :hoge を :passwordへ !-->
+          <%= f.password_field :password, id:"user_password", autocomplete: "new-password" %>                                  <!-- :hoge を :passwordへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />                                                        <!-- :hoge を :password_confirmationへ !-->
+          <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password" %>       <!-- :hoge を :password_confirmationへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :name, "ユーザー名" %><br />                                                                              <!-- :hoge を :nameへ !-->
+          <%= f.text_field :name, id:"user_name" %>                                                                            <!-- :hoge を :nameへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />                                                                         <!-- :hoge を :profileへ !-->
+          <%= f.text_area :profile, class: :form__text, id:"user_profile" %>                                                  <!-- :hoge を :profileへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :occupation, "所属" %><br />                                                                             <!-- :hoge を :occupationへ !-->
+          <%= f.text_area :occupation, class: :form__text, id:"user_occupation" %>                                            <!-- :hoge を :occupationへ !-->
+        </div>
+
+        <div class="field">
+          <%= f.label :position, "役職" %><br />                                                                              <!-- :hoge を :positionへ !-->
+          <%= f.text_area :position, class: :form__text, id:"user_position" %>                                               <!-- :hoge を :positionへ !-->
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
