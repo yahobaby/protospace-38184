@@ -27,14 +27,16 @@ class PrototypesController < ApplicationController
 
 
   def edit #投稿の編集を行うリクエストに対応
+
   end
 
   def update #データの編集を行うリクエストに対応
     @prototype = Prototype.find(params[:id])
     # updateアクションにインスタンス変数@prototypeを定義、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し@prototypeに代入 202210062250
 
-    if @prototype.update(prototype_params)
-      redirect_to root_path #prototype/indexへ移動
+    if @prototype.update(prototype_params) #edit.html.erbでtitle,catch_copy,concept,imageなど修正を行い、202210111910
+      redirect_to prototype_path(@prototype) #もし成功すると、prototype/show.html.erb(ユーザー詳細ページ)へ遷移
+      #元コード： root_path #prototype/indexへ遷移
     else
       render :edit #edit.html.erbへ移動
     end

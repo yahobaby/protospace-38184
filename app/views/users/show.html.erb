@@ -30,7 +30,12 @@
       </h2>
       <div class="user__card">
         <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-       <%= render partial: 'prototypes/prototype.html.erb', collection: @prototypes %>
+
+      <%= render partial: 'prototypes/prototype.html.erb', collection: @user.prototypes %>
+      <!-- 元コード、このままだと全投稿者のプロトタイプが表示されてしまうので、ユーザー詳細ページのユーザーのプロトタイプだけ表示するよう絞る
+       <%# <%= render partial: 'prototypes/prototype.html.erb', collection: @prototypes %> 
+      //// 元コード、このままだと全投稿者のプロトタイプが表示されてしまうので、ユーザー詳細ページのユーザーのプロトタイプだけ表示するよう絞る202210111835-->        
+       
 
       </div>
     </div>

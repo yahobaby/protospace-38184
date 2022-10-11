@@ -23,7 +23,9 @@
           <%# ログインしているときは以下を表示するようにしましょう %>
           <% if user_signed_in? %>
           <div class="nav__right">
-          <span>こんにちは！ <%= current_user.name %> さん！</span> <!-- current_userメソッドで、ログイン中のユーザー名表示202210041440 !-->
+          <!--ログイン中は、こちらの挨拶文言は重複するので非表示する-->
+          <!--<span>こんにちは！ <%= current_user.name %> さん！</span>--> <!-- current_userメソッドで、ログイン中のユーザー名表示202210041440 !-->
+         <!--///ログイン中は、こちらの挨拶文言は重複するので非表示する202210111811-->
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %> <!--destroy_user_session_pathはHTTPメソッドがdelete 202210041550!-->
               <%= link_to "New Proto", new_prototype_path, class: :nav__btn %>
 <!--          <%= link_to "New Proto", root_path, class: :nav__btn %> ヘッダーの「New Proto」ボタンから、新規投稿ページに遷移 202210050433   !-->
