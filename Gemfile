@@ -62,3 +62,5 @@ gem 'image_processing', '~> 1.2'
 
 #binding.pry が使いたい。202210050440
 gem 'pry-rails'
+
+gem 'payjp'

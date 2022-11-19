@@ -6,7 +6,7 @@
         <%= @prototype.title %> 
         
       </p>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>       
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user), class: :prototype__user %>
       <!--詳細ページに投稿したユーザー名と、投稿したユーザー情報へのリンク表示!-->
       <% if current_user == @prototype.user%>
@@ -14,7 +14,7 @@
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
           <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
-    <!--SHOWアクション、DELETEアクション共に、パスがprototype_pathで一緒// HTTPメソッド(Verb)までmethodオプションで指定しないとパス特定できず読み込めない202210070016!-->
+    <!--SHOWアクション、DELETEアクション共に、パスがprototype_pathで一緒// HTTPメソッド(Verb)までmethodオプションで指定しないとパス特定できず読み込めない!-->
         </div>
       <% end %>
       <div class="prototype__image">
@@ -51,7 +51,7 @@
       <%# // ログインしているユーザーには上記を表示する %>
 
         <ul class="comments_lists">
-        <%# 投稿に紐づくコメントを一覧する処理を記述する 202210072005%>
+        <%# 投稿に紐づくコメントを一覧する処理を記述する%>
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.content%> <!--commentテーブルのcontentカラムを表示!-->

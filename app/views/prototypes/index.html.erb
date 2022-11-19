@@ -1,33 +1,29 @@
-<%# データベースに異常発生で、やり直し202210061228 %>
-
 <main class="main">
   <div class="inner">
 
- <%# ログインしているときは以下を表示する %> <!--user_signed_in?で、ログイン中は if ~ else の間表示//202210060130     !-->
+ <%# ログインしているときは以下を表示する %>
     <% if user_signed_in? %> 
     <!--ログイン中は、こちらの挨拶文言だけ表示する-->
         <div class="greeting">
         こんにちは、
-        <%#元コード： <%= link_to "#{current_user.name}さん", root_path, class: :greeting__link %> <!--root_pathのままだと、トップページへ遷移になる。-->
-        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %> <!--ログイン中のユーザーの詳細ページへ遷移するようパス修正202210111850-->
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %> 
       </div>
-     <!--///ログイン中は、こちらの挨拶文言だけ表示する202210111810-->
+     <!--///ログイン中は、こちらの挨拶文言だけ表示する-->
    <% else %>
-   <%# user_signed_in?で、ログイン中は if ~ else の間表示//202210060130 %>
-    <%# // ログインしているときは上記を表示する %>
+   <%# // ログインしているときは上記を表示する %>
 <% end %>
 
 
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <%# _prototype.html.erbを呼び出し、プロトタイプ毎に、画像・プロトタイプ名・キャッチコピー・投稿者の名前を表示できるようにした（renderメソッドにcollectionオプションを用いる）202210051130 %>
-      <%# エラーは出ないが、こちらの記述でOK？202210051125 %>
-       <%= render partial: 'prototype', collection: @prototypes%> <!--prototypesコントローラーのindexアクションを"@prototypes"で定義したので、collection: の値も@prototypesにする//202210061350!-->    
+      <%# _prototype.html.erbを呼び出し、プロトタイプ毎に、画像・プロトタイプ名・キャッチコピー・投稿者の名前を表示できるようにした（renderメソッドにcollectionオプションを用いる）%>
+      <%= render partial: 'prototype', collection: @prototypes%> 
+      <!--prototypesコントローラーのindexアクションを"@prototypes"で定義したので、collection: の値も@prototypesにする-->    
   </div>
   </div>
 </main>
 
-<!--202210061240
+<!--
 ・Rails deviseで使えるヘルパーメソッド
 current_user	ログイン中のユーザーを取得する // current_user.name =- user/dbの名前、current_user.profile == user/dbのプロフィール、current_user.occupation == user/dbの所属 // current_user.position == user/dbの役職
 !-->

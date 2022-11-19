@@ -1,4 +1,4 @@
-#userコントローラー202210072155
+#userコントローラー
 class UsersController < ApplicationController
   def show #個別詳細ページを表示するリクエストに対応
     @user = User.find(params[:id]) #userモデルと紐づいてるデータベースから、idカラムをパラメーターとして読み取り、＠userに代入

@@ -1,12 +1,10 @@
-<%# データベースに異常発生で、やり直し202210061228 %>
-
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">新規プロトタイプ投稿</h2>
 
         <%# 部分テンプレートでフォームを表示する %>
-        <%= render "form", locals: { prototype: @prototype } %> <!--202210042210追加間違ってindex.html.erbに入れてたこと発覚&修正202210050230!-->
+        <%= render "form", locals: { prototype: @prototype } %> 
         
     </div>
   </div>

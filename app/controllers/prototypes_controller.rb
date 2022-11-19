@@ -4,11 +4,11 @@ class PrototypesController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :update, :destroy] #先に実行させる。最下段の#個別詳細ページを表示するリクエストに対応メソッドが実行される。
 
   def index #一覧表示ページを表示するリクエストに対応
-    @prototypes = Prototype.all #indexアクションに、インスタンス変数@prototypesを定義し、すべてのプロトタイプの情報を代入202210050723
+    @prototypes = Prototype.all #indexアクションに、インスタンス変数@prototypesを定義し、すべてのプロトタイプの情報を代入
   end
 
   def new #新規投稿ページを表示するリクエストに対応
-    @prototype = Prototype.new # newアクションにインスタンス変数@prototypeを定義、Prototypeモデルの新規オブジェクトを代入202210042235
+    @prototype = Prototype.new # newアクションにインスタンス変数@prototypeを定義、Prototypeモデルの新規オブジェクトを代入
   end
 
   def show #個別詳細ページを表示するリクエストに対応
@@ -32,9 +32,9 @@ class PrototypesController < ApplicationController
 
   def update #データの編集を行うリクエストに対応
     @prototype = Prototype.find(params[:id])
-    # updateアクションにインスタンス変数@prototypeを定義、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し@prototypeに代入 202210062250
+    # updateアクションにインスタンス変数@prototypeを定義、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し@prototypeに代入
 
-    if @prototype.update(prototype_params) #edit.html.erbでtitle,catch_copy,concept,imageなど修正を行い、202210111910
+    if @prototype.update(prototype_params) #edit.html.erbでtitle,catch_copy,concept,imageなど修正を行い、
       redirect_to prototype_path(@prototype) #もし成功すると、prototype/show.html.erb(ユーザー詳細ページ)へ遷移
       #元コード： root_path #prototype/indexへ遷移
     else
@@ -44,7 +44,7 @@ class PrototypesController < ApplicationController
 
 
   def destroy #データを削除するリクエストに対応
-    @prototype = Prototype.find(params[:id]) # destroyアクションにインスタンス変数@prototypeを定義、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し@prototypeに代入 202210070009
+    @prototype = Prototype.find(params[:id]) # destroyアクションにインスタンス変数@prototypeを定義、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し@prototypeに代入
     if @prototype.destroy 
       redirect_to root_path #prototype/indexへ移動
     else

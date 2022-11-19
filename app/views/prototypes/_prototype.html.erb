@@ -1,42 +1,22 @@
-<%# データベースに異常発生で、やり直し202210061228 %>
-
 <div class="card">
-  <%# <%= link_to image_tag(prototype.image, class: "card__img" ), root_path %>
-  <%# <%= link_to image_tag("logo.png", class: "card__img" ), root_path %> 
-  <%# <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path %> 
   <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype.id)%>
-  <!--show.html.erbをリンク先にする202210061725!--><!--rails routeで詳細ページ(prototype/show)のパスがprototypeであることを確認202210061830!-->
-  
 
-<!--ArgumentError in Prototypes#indexの原因がわかった。理由は、2番目に保存したプロトタイプにあった。
-asdf@asdf.asdfでログインし、試しでアップロードした4つのプロトタイプのうち、2番目のデータに写真添付の漏れ。
-画像がないままアップされ、紐付けがされてないデータがあり、それによりエラー、
-https://qiita.com/hedgehog-genki/items/fd1ef7cceb0bce283caeのサイトのおかげで助かった。202210061606
-!-->
-
-<%#元記述 /// <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path %>
-<!-- //Sprockets::Rails::Helper::AssetNotFound in Prototypes#index//というエラーずっと発生!-->
-<!-- asset/imagesフォルダにあるlogo.pngを入れてみたら、とりあえず投稿したプロトタイプが同じタイトル、キャッチコピー、投稿者名で、投稿した個数分出力された//202210061104!-->
-<!--!-->
- 
   <div class="card__body">
     <%= link_to "#{prototype.title}", prototype_path(prototype.id), class: :card__title%> 
-    <!--show.html.erbをリンク先にする202210061725!--><!--rails routeで詳細ページ(prototype/show)のパスがprototypeであることを確認202210061830!-->
+    <!--show.html.erbをリンク先にする!--><!--rails routeで詳細ページ(prototype/show)のパスがprototypeであることを確認!-->
     <p class="card__summary">
       <%= "#{prototype.catch_copy}" %>
     </p>
 
-    <%= link_to "#{prototype.user.name}", user_path(prototype.user), class: :card__user %><!--各ページのユーザー名をクリックすると、ユーザーの詳細ページへ遷移するように修正202210111859-->
-    <%#元コード： <%= link_to "#{prototype.user.name}", root_path, class: :card__user %><!--show.html.erbをリンク先にする202210061725!-->
-    <!--DBのprototypeテーブルに該当するuserテーブルのnameカラム202210061451!-->
+    <%= link_to "#{prototype.user.name}", user_path(prototype.user), class: :card__user %>
+    <!--各ページのユーザー名をクリックすると、ユーザーの詳細ページへ遷移するように修正-->
+    <!--show.html.erbをリンク先にする!-->
+    <!--DBのprototypeテーブルに該当するuserテーブルのnameカラム!-->
 
   </div>
 </div>
 
-
-
-
-<!--202210061245
+<!--メモ
 prototype.title ==プロトタイプのタイトル
 prototype.catch_copy ==プロトタイプのキャッチコピー
 prototype.concept ==プロトタイプのコンセプト

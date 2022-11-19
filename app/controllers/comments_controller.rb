@@ -1,4 +1,4 @@
-#rails g controller comments // でcommentコントローラー生成202210070303
+#rails g controller comments // でcommentコントローラー生成
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
